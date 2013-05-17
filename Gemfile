@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
-
+gem 'rails_admin', '~> 0.4.8'
+gem 'haml', '~> 4.0.2'
+gem 'devise', '~> 2.2.4'
 gem 'pg'
 gem 'jquery-rails'
 
