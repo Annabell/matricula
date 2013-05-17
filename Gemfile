@@ -6,6 +6,7 @@ gem 'haml', '~> 4.0.2'
 gem 'devise', '~> 2.2.4'
 gem 'pg'
 gem 'jquery-rails'
+gem 'rails-i18n'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
