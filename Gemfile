@@ -4,10 +4,11 @@ gem 'rails', '3.2.13'
 gem 'rails_admin', '~> 0.4.8'
 gem 'haml', '~> 4.0.2'
 gem 'devise', '~> 2.2.4'
-gem 'pg'
-gem 'jquery-rails'
-gem 'rails-i18n'
-gem 'devise-i18n-views'
+gem 'pg', '~> 0.15.1'
+gem 'jquery-rails', '~> 2.2.1'
+
+gem 'rails-i18n', '~> 0.7.3'
+gem 'devise-i18n-views', '~> 0.2.6'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
