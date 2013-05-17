@@ -51,6 +51,7 @@ GEM
       orm_adapter (~> 0.1)
       railties (~> 3.1)
       warden (~> 1.2.1)
+    devise-i18n-views (0.2.6)
     diff-lcs (1.2.4)
     erubis (2.7.0)
     eventmachine (1.0.3)
@@ -191,6 +192,7 @@ DEPENDENCIES
   capybara (~> 2.1.0)
   coffee-rails (~> 3.2.1)
   devise (~> 2.2.4)
+  devise-i18n-views
   factory_girl_rails (~> 4.2.1)
   haml (~> 4.0.2)
   jquery-rails

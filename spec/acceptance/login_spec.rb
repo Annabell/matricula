@@ -16,7 +16,7 @@ feature 'login and register' do
 
     fill_in 'Email', :with => user.email
     fill_in 'Password', :with => user.password
-    click_button 'Entrar'
+    click_button 'Login'
 
     expect(page).to have_content 'Autenticado com sucesso.'
   end

@@ -7,6 +7,7 @@ gem 'devise', '~> 2.2.4'
 gem 'pg'
 gem 'jquery-rails'
 gem 'rails-i18n'
+gem 'devise-i18n-views'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
