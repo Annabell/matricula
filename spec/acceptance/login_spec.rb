@@ -37,5 +37,14 @@ feature 'login and register' do
       expect { visit rails_admin_path }.not_to raise_error CanCan::AccessDenied
       expect(current_path).to eq(rails_admin_path)
     end
+
+    scenario 'admin with login_as' do
+      user = create(:admin)
+      login(user)
+      
+      expect { visit rails_admin_path }.not_to raise_error CanCan::AccessDenied
+      expect(current_path).to eq(rails_admin_path)
+      expect(page).to have_content 'Administração do Site'
+    end
   end
 end
