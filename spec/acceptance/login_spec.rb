@@ -11,7 +11,7 @@ feature 'login and register' do
   end
 
   context 'sign in' do
-    scenario 'user' do
+    scenario 'comum user' do
       user = create(:user)
       visit new_user_session_path
 
@@ -20,6 +20,22 @@ feature 'login and register' do
       click_button 'Login'
 
       expect(page).to have_content 'Autenticado com sucesso.'
+      expect(current_path).to eq(root_path)
+
+      expect { visit rails_admin_path }.to raise_error CanCan::AccessDenied
+    end
+
+    scenario 'admin' do
+      user = create(:admin)
+      visit rails_admin_path
+
+      fill_in 'Email', :with => user.email
+      fill_in 'Senha', :with => user.password
+      click_button 'Login'
+
+      expect(page).to have_content 'Autenticado com sucesso.'
+      expect { visit rails_admin_path }.not_to raise_error CanCan::AccessDenied
+      expect(current_path).to eq(rails_admin_path)
     end
   end
 end

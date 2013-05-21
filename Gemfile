@@ -1,11 +1,15 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
+
 gem 'rails_admin', '~> 0.4.8'
-gem 'haml', '~> 4.0.2'
 gem 'devise', '~> 2.2.4'
+gem 'cancan', '~> 1.6.10'
+
+gem 'haml', '~> 4.0.2'
 gem 'pg', '~> 0.15.1'
 gem 'jquery-rails', '~> 2.2.1'
+
 
 gem 'rails-i18n', '~> 0.7.3'
 gem 'devise-i18n-views', '~> 0.2.6'
