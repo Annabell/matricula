@@ -8,6 +8,10 @@ require 'rspec/autorun'
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
+#config capybara's driver
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist
+
 RSpec.configure do |config|
   # ## Mock Framework
   #
@@ -38,4 +42,6 @@ RSpec.configure do |config|
 
   # helpers factorygirl
   config.include FactoryGirl::Syntax::Methods
+
+
 end
