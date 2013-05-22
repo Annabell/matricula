@@ -1,10 +1,14 @@
 pt-BR:
   activerecord:
     models:
-      user: "Usuário"
+      user: 'Usuário'
+      course: 'Curso'
     attributes:
       user:
-        email: "Email"
-        password: "Senha"
-        password_confirmation: "Confirmação da senha"
+        email: 'Email'
+        password: 'Senha'
+        password_confirmation: 'Confirmação da senha'
         current_password: 'Senha atual'
+      course:
+        name: 'Nome'
+        cod: 'Código'
