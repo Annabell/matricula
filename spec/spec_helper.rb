@@ -8,19 +8,24 @@ require 'rspec/autorun'
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
-#config capybara's driver
+# config capybara's driver
 require 'capybara/poltergeist'
 Capybara.javascript_driver = :poltergeist
 
-RSpec.configure do |config|
-  # ## Mock Framework
-  #
-  # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
-  #
-  # config.mock_with :mocha
-  # config.mock_with :flexmock
-  # config.mock_with :rr
+# http://blog.plataformatec.com.br/2011/12/three-tips-to-improve-the-performance-of-your-test-suite/
+Devise.stretches = 1
+Rails.logger.level = 4
 
+class ActiveRecord::Base
+  mattr_accessor :shared_connection
+  @@shared_connection = nil
+
+  def self.connection
+    @@shared_connection || retrieve_connection
+  end
+end
+
+RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -42,6 +47,10 @@ RSpec.configure do |config|
 
   # helpers factorygirl
   config.include FactoryGirl::Syntax::Methods
+  
+  ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
 
-
+  # TODO: do this work!
+  # rails_admin url helpers
+  #config.include RailsAdmin::Engine.routes.url_helpers
 end
