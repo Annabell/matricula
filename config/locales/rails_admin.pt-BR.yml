@@ -55,11 +55,11 @@ pt-BR:
       show_in_app:
         menu: "Mostrar na aplicação"
       new:
-        title: "Novo %{model_label}"
-        menu: "Criar novo"
-        breadcrumb: "Novo"
-        link: "Criar um novo %{model_label}"
-        done: "criado"
+        title: "Novo(a) %{model_label}"
+        menu: "Criar novo(a)"
+        breadcrumb: "Novo(a)"
+        link: "Criar um novo(a) %{model_label}"
+        done: "criado(a)"
       edit:
         title: "Editar %{model_label} '%{object_label}'"
         menu: "Editar"

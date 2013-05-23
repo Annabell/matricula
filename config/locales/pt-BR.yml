@@ -3,6 +3,7 @@ pt-BR:
     models:
       user: 'Usuário'
       course: 'Curso'
+      discipline: 'Disciplina'
     attributes:
       user:
         email: 'Email'
@@ -12,3 +13,7 @@ pt-BR:
       course:
         name: 'Nome'
         cod: 'Código'
+      discipline:
+        name: 'Nome'
+        cod: 'Código'
+        credits: 'Créditos'
