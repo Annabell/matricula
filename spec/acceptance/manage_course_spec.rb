@@ -3,9 +3,9 @@ require 'spec_helper'
 
 feature 'Manage course' do
   background do
-    login create(:admin)
+    login_as create(:admin)
   end
-  
+
   context 'new', js: true do
     before :each do
       visit '/admin/course/new'

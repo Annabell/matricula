@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 feature 'login and register' do
-  
+
   scenario 'a guest user trying to register yourself' do
     visit rails_admin_path
     expect(page).to have_content 'Você precisa registrar-se ou fazer login para continuar.'
@@ -40,8 +40,8 @@ feature 'login and register' do
 
     scenario 'admin with login_as' do
       user = create(:admin)
-      login(user)
-      
+      login_as(user)
+
       expect { visit rails_admin_path }.not_to raise_error CanCan::AccessDenied
       expect(current_path).to eq(rails_admin_path)
       expect(page).to have_content 'Administração do Site'

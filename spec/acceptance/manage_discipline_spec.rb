@@ -3,9 +3,9 @@ require 'spec_helper'
 
 feature 'Manage discipline' do
   background do
-    login create(:admin)
+    login_as create(:admin)
   end
-  
+
   context 'new' do
     before :each do
       visit '/admin/discipline/new'
