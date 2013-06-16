@@ -2,32 +2,20 @@
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
-require 'rspec/autorun'
+require 'capybara/rails'
+require 'capybara/rspec'
+require 'capybara/poltergeist'
+require 'valid_attribute'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
-Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
-# config capybara's driver
-require 'capybara/poltergeist'
 Capybara.javascript_driver = :poltergeist
 
-# http://blog.plataformatec.com.br/2011/12/three-tips-to-improve-the-performance-of-your-test-suite/
-Devise.stretches = 1
-Rails.logger.level = 4
-
-class ActiveRecord::Base
-  mattr_accessor :shared_connection
-  @@shared_connection = nil
-
-  def self.connection
-    @@shared_connection || retrieve_connection
-  end
-end
-
 RSpec.configure do |config|
-  # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  # https://github.com/plataformatec/devise/wiki/How-To:-Test-with-Capybara
+  config.include Warden::Test::Helpers
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
@@ -45,12 +33,16 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
-  # helpers factorygirl
-  config.include FactoryGirl::Syntax::Methods
-  
-  ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
+  config.before(:each) do
+    Warden.test_mode!
+  end
 
-  # TODO: do this work!
-  # rails_admin url helpers
-  #config.include RailsAdmin::Engine.routes.url_helpers
+  config.after(:each) do
+    Warden.test_reset!
+  end
+end
+
+# just an alias
+def page!
+  save_and_open_page
 end

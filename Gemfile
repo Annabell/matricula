@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.0.0'
+
 gem 'rails', '3.2.13'
 
 gem 'rails_admin', '~> 0.4.8'
@@ -22,9 +24,22 @@ group :assets do
 end
 
 group :development, :test do
+  gem 'pry', '~> 0.9.12'
+  gem 'pry-rails', '~> 0.3.0'
+  gem 'factory_girl_rails', '~> 4.2.1'
+  gem 'awesome_print'
+end
+
+group :test do
+  gem 'shoulda', '~> 3.5.0'
+  gem 'valid_attribute', '~> 1.3.1'
   gem 'rspec-rails', '~> 2.13.1'
   gem 'capybara', '~> 2.1.0'
   gem 'poltergeist', '~> 1.3.0'
-  gem 'factory_girl_rails', '~> 4.2.1'
-  gem 'valid_attribute', '~> 1.3.1'
+end
+
+group :development do
+  gem 'better_errors' # replaces the standard Rails error page with a much better and more useful error page
+  gem 'binding_of_caller' # add advanced feature to better_errors
+  gem 'xray-rails'
 end
