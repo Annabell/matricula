@@ -8,7 +8,7 @@ RailsAdmin.config do |config|
 
   #Authorization
   config.authorize_with :cancan
-  
+
   # Set the admin name here (optional second array element will appear in red). For example:
   config.main_app_name = ['Matricula', 'Admin']
   # or for a more dynamic name:
@@ -52,6 +52,68 @@ RailsAdmin.config do |config|
 
   # Now you probably need to tour the wiki a bit: https://github.com/sferik/rails_admin/wiki
   # Anyway, here is how RailsAdmin saw your application's models when you ran the initializer:
+  config.model User do
+    object_label_method { :email }
 
+    list do
+      field :email
+    end
 
+    create do
+      field :email
+      field(:password) do
+        help 'Digite a senha do novo usuário'
+      end
+
+      field :password_confirmation do
+        help 'Confirme a senha do novo usuário'
+      end
+    end
+
+    edit do
+      field :email
+      field(:password) do
+        help 'Digite uma nova senha caso deseje modificar a atual'
+      end
+
+      field :password_confirmation do
+        help 'Confirme a senha caso deseje mudar a senha atual'
+      end
+    end
+  end
+
+  config.model Student do
+    object_label_method { :email }
+
+    list do
+      field :registration_number
+      field :email
+    end
+
+    create do
+      field :registration_number
+      field :name
+      field :email
+      field(:password) do
+        help 'Digite a senha do novo usuário'
+      end
+
+      field :password_confirmation do
+        help 'Confirme a senha do novo usuário'
+      end
+    end
+
+    edit do
+      field :registration_number
+      field :name
+      field :email
+      field(:password) do
+        help 'Digite uma nova senha caso deseje modificar a atual'
+      end
+
+      field :password_confirmation do
+        help 'Confirme a senha caso deseje mudar a senha atual'
+      end
+    end
+  end
 end

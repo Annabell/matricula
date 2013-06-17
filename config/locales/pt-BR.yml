@@ -5,12 +5,14 @@ pt-BR:
       course: 'Curso'
       discipline: 'Disciplina'
       classroom: 'Turma'
+      student: 'Aluno'
     attributes:
       user:
         email: 'Email'
         password: 'Senha'
         password_confirmation: 'Confirmação da senha'
         current_password: 'Senha atual'
+        type: 'Tipo'
       course:
         name: 'Nome'
         cod: 'Código'
@@ -22,3 +24,6 @@ pt-BR:
         discipline: 'Disciplina'
         vacancies: 'Vagas'
         name: 'Nome'
+      student:
+        name: 'Nome'
+        registration_number: 'Matrícula'
