@@ -36,6 +36,7 @@ group :test do
   gem 'rspec-rails', '~> 2.13.1'
   gem 'capybara', '~> 2.1.0'
   gem 'poltergeist', '~> 1.3.0'
+  gem 'launchy', '~> 2.3.0'
 end
 
 group :development do
