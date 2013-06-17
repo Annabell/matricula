@@ -31,9 +31,9 @@ group :development, :test do
 end
 
 group :test do
+  gem 'rspec-rails', '~> 2.13.1'
   gem 'shoulda', '~> 3.5.0'
   gem 'valid_attribute', '~> 1.3.1'
-  gem 'rspec-rails', '~> 2.13.1'
   gem 'capybara', '~> 2.1.0'
   gem 'poltergeist', '~> 1.3.0'
   gem 'launchy', '~> 2.3.0'
