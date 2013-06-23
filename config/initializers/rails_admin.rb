@@ -57,9 +57,11 @@ RailsAdmin.config do |config|
 
     list do
       field :email
+      field :admin
     end
 
     create do
+      field :admin
       field :email
       field(:password) do
         help 'Digite a senha do novo usuário'
@@ -71,6 +73,7 @@ RailsAdmin.config do |config|
     end
 
     edit do
+      field :admin
       field :email
       field(:password) do
         help 'Digite uma nova senha caso deseje modificar a atual'
