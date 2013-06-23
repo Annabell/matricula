@@ -1,3 +1,10 @@
+entities_defaults: &entities_defaults
+  name: 'Nome'
+  cod: 'Código'
+people_defaults: &people_defaults
+  name: 'Nome'
+  registration_number: 'Matrícula'
+
 pt-BR:
   activerecord:
     models:
@@ -14,16 +21,13 @@ pt-BR:
         current_password: 'Senha atual'
         type: 'Tipo'
       course:
-        name: 'Nome'
-        cod: 'Código'
+        <<: *entities_defaults
       discipline:
-        name: 'Nome'
-        cod: 'Código'
+        <<: *entities_defaults
         credits: 'Créditos'
       classroom:
         discipline: 'Disciplina'
         vacancies: 'Vagas'
         name: 'Nome'
       student:
-        name: 'Nome'
-        registration_number: 'Matrícula'
+        <<: *people_defaults
