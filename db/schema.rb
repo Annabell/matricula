@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130617013939) do
+ActiveRecord::Schema.define(:version => 20130705034516) do
 
   create_table "classrooms", :force => true do |t|
     t.integer  "discipline_id"
@@ -50,6 +50,17 @@ ActiveRecord::Schema.define(:version => 20130617013939) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+
+  create_table "schedules", :force => true do |t|
+    t.string   "day"
+    t.time     "time_begin"
+    t.time     "time_end"
+    t.integer  "classroom_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "schedules", ["classroom_id"], :name => "index_schedules_on_classroom_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
