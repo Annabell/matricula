@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :classroom do
-    name "MyString"
+    name "A"
     vacancies 40
+    discipline
   end
 end
