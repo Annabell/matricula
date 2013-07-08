@@ -19,8 +19,7 @@ describe Schedule do
 
   context 'Rules of schedule times' do
     it 'Should fail when time_end starts first than time_first' do
-      schedule = FactoryGirl.create :schedule, time_begin: Time.now, time_end: 2.hours.ago
-      expect(schedule.errors[:time_end]).to include("Horario de término tem que ser após horario de início.")
+      expect{FactoryGirl.create :schedule, time_begin: Time.now, time_end: 2.hours.ago}.to raise_error ActiveRecord::RecordInvalid
     end
   end
 end
