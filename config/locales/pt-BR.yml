@@ -33,7 +33,7 @@ pt-BR:
       student:
         <<: *people_defaults
       schedule:
-        time_begin: 'Horario Inicial'
+        time_begin: 'Horário Inicial'
         time_end: 'Horário Final'
         day: 'Dia'
         classroom: 'Turma'
