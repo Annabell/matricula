@@ -2,8 +2,8 @@
 
 class Schedule < ActiveRecord::Base
   belongs_to :classroom
-  attr_accessible :day, :time_begin, :time_end
-  validates :day, :time_begin, :time_end, presence: true
+  attr_accessible :day, :time_begin, :time_end, :classroom_id
+  validates :day, :time_begin, :time_end, :classroom_id, presence: true
   before_save :validate_times
 
 
