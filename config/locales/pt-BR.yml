@@ -13,6 +13,7 @@ pt-BR:
       discipline: 'Disciplina'
       classroom: 'Turma'
       student: 'Aluno'
+      schedule: 'Horário'
     attributes:
       user:
         email: 'Email'
@@ -31,3 +32,8 @@ pt-BR:
         name: 'Nome'
       student:
         <<: *people_defaults
+      schedule:
+        time_begin: 'Horario Inicial'
+        time_end: 'Horário Final'
+        day: 'Dia'
+        classroom: 'Turma'
